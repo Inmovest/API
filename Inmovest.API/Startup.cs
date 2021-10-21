@@ -2,10 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Inmovest.API.Domain;
+using Inmovest.API.Domain.Repositories;
+using Inmovest.API.Domain.Services;
+using Inmovest.API.Persistence.Contexts;
+using Inmovest.API.Persistence.Repositories;
+using Inmovest.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +38,20 @@ namespace Inmovest.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Inmovest.API", Version = "v1"});
             });
+            
+            // Configure In-Memory Database
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("inmovest-api-in-memory");
+            });
+            
+            // Dependency Injection Rules
+            services.AddScoped<IDeveloperRepository, DeveloperRepository>();
+            services.AddScoped<IDeveloperService, DeveloperService>();
+            
+            // AutoMapper Dependency Injection
+            services.AddAutoMapper(typeof(Startup));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
