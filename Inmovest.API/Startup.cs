@@ -49,6 +49,15 @@ namespace Inmovest.API
             services.AddScoped<IDeveloperRepository, DeveloperRepository>();
             services.AddScoped<IDeveloperService, DeveloperService>();
             
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
+            services.AddScoped<IBankAccountService, BankAccountService>();
+            
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletService, WalletService>();
+            
             // AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));
 

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Imnovest.API.Domain;
 using Inmovest.API.Domain;
 using Inmovest.API.Resources;
 
@@ -9,6 +10,9 @@ namespace Inmovest.API.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Developer, DeveloperResource>();
+            CreateMap<User, UserResource>();
+            CreateMap<BankAccount, BankAccountResource>();
+            CreateMap<Wallet, WalletResource>();
         }
     }
 }
