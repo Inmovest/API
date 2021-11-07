@@ -17,7 +17,8 @@ namespace InmovestAPI.Resources
         [Required]
         [MaxLength(250)]
         public string PhotoUrl { get; set; }
-        //public int DeveloperId { get; set; }
+        [Required]
+        public int ManagerId { get; set; }
         //public int DistrictId { get; set; }
     }
 }
