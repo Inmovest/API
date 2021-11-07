@@ -11,7 +11,7 @@ namespace InmovestAPI.Resources
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
-        //public DeveloperResource Developer {get;set;}
+        public ManagerResource Manager {get;set;}
         //public DistrictResource District {get;set;}
     }
 }
