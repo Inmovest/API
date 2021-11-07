@@ -13,11 +13,13 @@ namespace InmovestAPI.Services
     public class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IManagerRespository _managerRespository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ProjectService(IProjectRepository projectRepository, IUnitOfWork unitOfWork)
+        public ProjectService(IProjectRepository projectRepository, IManagerRespository managerRespository, IUnitOfWork unitOfWork)
         {
             _projectRepository = projectRepository;
+            _managerRespository = managerRespository;
             _unitOfWork = unitOfWork;
         }
 
@@ -47,9 +49,19 @@ namespace InmovestAPI.Services
             return await _projectRepository.ListAsync();
         }
 
+        public async Task<IEnumerable<Project>> ListByManagerIdAsync(int managerId)
+        {
+            return await _projectRepository.FindByManagerId(managerId);
+        }
+
         public async Task<ProjectResponse> SaveAsync(Project project)
         {
             //Validate Relationships (por realizar)
+            
+            var existingManager = _managerRespository.FindByIdAsync(project.ManagerId);
+
+            if (existingManager == null)
+                return new ProjectResponse("Invalid Manager.");
 
             //Validate Name
             var existingProductWithName = await _projectRepository.FindByNameAsync(project.Name);
@@ -77,6 +89,13 @@ namespace InmovestAPI.Services
 
             if (existingProject == null)
                 return new ProjectResponse("Project not found.");
+            
+            //Validate Relationships 
+            
+            var existingManager = _managerRespository.FindByIdAsync(project.ManagerId);
+
+            if (existingManager == null)
+                return new ProjectResponse("Invalid Manager.");
 
             //Validate Name
             var existingProjectWithName = await _projectRepository.FindByNameAsync(project.Name);

@@ -13,6 +13,7 @@ namespace InmovestAPI.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Project, ProjectResource>();
+            CreateMap<Manager, ManagerResource>();
         }
     }
 }

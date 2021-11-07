@@ -51,8 +51,13 @@ namespace InmovestAPI
             });
 
             //Dependency Injection Rules
+            //Projects
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectService, ProjectService>();
+            //Managers
+            services.AddScoped<IManagerRespository, ManagerRepository>();
+            services.AddScoped<IManagerService, ManagerService>();
+            //Unit Of Work
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // AutoMapper Dependency Injection

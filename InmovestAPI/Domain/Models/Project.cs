@@ -11,8 +11,10 @@ namespace InmovestAPI.Domain.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoUrl { get; set; }
-        //public int DeveloperId { get; set; }
-        //public int DistrictId { get; set; }
+        
+        // Relationships
+        public int ManagerId { get; set; }
+        public Manager Manager { get; set; }
         //recuerda agregar el public Developer Developer {get;set;} y el relacionado a distrinct tambien
     }
 }

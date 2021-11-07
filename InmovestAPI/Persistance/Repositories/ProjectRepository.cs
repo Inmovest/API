@@ -20,6 +20,7 @@ namespace InmovestAPI.Persistance.Repositories
         public async Task<Project> FindByIdAsync(int id)
         {
             return await _context.Projects
+                .Include(p=>p.Manager)
                 .FirstOrDefaultAsync(p => p.Id == id);
             //recuerda agregar las relaciones con District y Developer, usando el .include.
         }
@@ -27,13 +28,24 @@ namespace InmovestAPI.Persistance.Repositories
         public async Task<Project> FindByNameAsync(string name)
         {
             return await _context.Projects
+                .Include(p=>p.Manager)
                 .FirstOrDefaultAsync(p => p.Name == name);
             //recuerda agregar las relaciones con District y Developer, usando el .include.
         }
 
+        public async Task<IEnumerable<Project>> FindByManagerId(int managerId)
+        {
+            return await _context.Projects
+                .Where(p => p.ManagerId == managerId)
+                .Include(p => p.Manager)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Project>> ListAsync()
         {
-            return await _context.Projects.ToListAsync();
+            return await _context.Projects
+                .Include(p=>p.Manager)
+                .ToListAsync();
             //antes de ToListAsync Una vez que se creen las entidades Developer y District debería ir .Include(p => p.District).
         }
 

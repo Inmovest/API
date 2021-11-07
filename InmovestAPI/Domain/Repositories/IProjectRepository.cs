@@ -12,7 +12,9 @@ namespace InmovestAPI.Domain.Repositories
         Task AddAsync(Project project);
         Task<Project> FindByIdAsync(int id);
         Task<Project> FindByNameAsync(string name);
+        Task<IEnumerable<Project>> FindByManagerId(int managerId);
         void Update(Project project);
         void Remove(Project project);
+        // Agregar las relaciones del FindByEnitityId
     }
 }

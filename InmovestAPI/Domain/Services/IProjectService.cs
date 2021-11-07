@@ -10,11 +10,10 @@ namespace InmovestAPI.Domain.Services
     public interface IProjectService
     {
         Task<IEnumerable<Project>> ListAsync();
-        //Task<IEnumerable<Project>> ListByDeveloperIdAsync(int developerId);
-        //Task<IEnumerable<Project>> ListByDistrictIdAsync(int districtId);
+        Task<IEnumerable<Project>> ListByManagerIdAsync(int managerId);
         Task<ProjectResponse> SaveAsync(Project project);
         Task<ProjectResponse> UpdateAsync(int id, Project project);
         Task<ProjectResponse> DeleteAsync(int id);
-
+        //Agregar las relaciones de ListByEntityIdAsync
     }
 }
