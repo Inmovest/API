@@ -8,5 +8,6 @@ namespace Inmovest.API.Domain.Repositories
     public interface IWalletRepository
     {
         Task<IEnumerable<Wallet>> ListAsync();
+        Task<IEnumerable<Wallet>> FindByUserId(int userId);
     }
 }

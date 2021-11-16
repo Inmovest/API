@@ -19,5 +19,10 @@ namespace Inmovest.API.Services
         {
             return await _walletRepository.ListAsync();
         }
+        
+        public async Task<IEnumerable<Wallet>> ListByUserIdAsync(int categoryId)
+        {
+            return await _walletRepository.FindByUserId(categoryId);
+        }
     }
 }

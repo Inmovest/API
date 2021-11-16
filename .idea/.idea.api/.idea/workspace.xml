@@ -6,34 +6,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="100cf43f-36c7-4472-a8a6-c3dd6a518fba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/BankAccountsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/UsersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/WalletsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Models/BankAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Models/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Models/Wallet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IBankAccountRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IUserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IWalletRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IBankAccountService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IWalletService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/BankAccountRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/UserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/WalletRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Resources/BankAccountResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Resources/UserResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Resources/WalletResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Services/BankAccountService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inmovest.API/Services/WalletService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/ContractsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/UserBankAccountsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Controllers/UserWalletsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Models/Contract.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IContractRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IContractService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/ContractRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Resources/ContractResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Inmovest.API/Services/ContractService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Domain/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IBankAccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IBankAccountRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IWalletRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Repositories/IWalletRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IBankAccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IBankAccountService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IWalletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Domain/Services/IWalletService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inmovest.API/Mapping/ModelToResourceProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Mapping/ModelToResourceProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inmovest.API/Persistence/Contexts/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Contexts/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/BankAccountRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/BankAccountRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/WalletRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Persistence/Repositories/WalletRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Services/BankAccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Services/BankAccountService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inmovest.API/Services/WalletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Services/WalletService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inmovest.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Inmovest.API/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

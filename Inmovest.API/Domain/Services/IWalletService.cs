@@ -7,5 +7,6 @@ namespace Inmovest.API.Domain.Services
     public interface IWalletService
     {
         Task<IEnumerable<Wallet>> ListAsync();
+        Task<IEnumerable<Wallet>> ListByUserIdAsync(int userId);
     }
 }

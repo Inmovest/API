@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Imnovest.API.Domain;
 using Inmovest.API.Domain;
+using Inmovest.API.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Inmovest.API.Persistence.Contexts
@@ -11,6 +12,7 @@ namespace Inmovest.API.Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<BankAccount> BankAccounts { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
         public AppDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -108,6 +110,27 @@ namespace Inmovest.API.Persistence.Contexts
                     Id = 1, 
                     Balance = 12345, 
                     Frozen = true,
+                }
+            );
+            
+            //Constraints  Contracts
+            builder.Entity<Contract>().ToTable("Contracts");
+            builder.Entity<Contract>().Property(p => p.Id);
+            builder.Entity<Contract>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Contract>().Property(p => p.Signed).IsRequired();
+
+            // Relationships
+            builder.Entity<Contract>()
+                .HasOne(p => p.User)
+                .WithMany(p => p.Contracts)
+                .HasForeignKey(p => p.UserId);
+            
+            // Seed Data for Contracts
+            builder.Entity<Contract>().HasData
+            (
+                new Contract() { 
+                    Id = 1, 
+                    Signed = true,
                 }
             );
         }

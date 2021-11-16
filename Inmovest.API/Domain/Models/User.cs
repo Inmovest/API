@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using Imnovest.API.Domain;
+using Inmovest.API.Domain.Models;
 
 namespace Inmovest.API.Domain
 {
@@ -19,5 +20,6 @@ namespace Inmovest.API.Domain
 
         public IList<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
         public IList<Wallet> Wallets { get; set; } = new List<Wallet>();
+        public IList<Contract> Contracts { get; set; } = new List<Contract>();
     }
 }
