@@ -57,6 +57,9 @@ namespace InmovestAPI
             //Managers
             services.AddScoped<IManagerRespository, ManagerRepository>();
             services.AddScoped<IManagerService, ManagerService>();
+            //Articles
+            services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IArticleService, ArticleService>();
             //Unit Of Work
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

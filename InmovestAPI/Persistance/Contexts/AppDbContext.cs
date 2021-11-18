@@ -12,6 +12,8 @@ namespace InmovestAPI.Persistance.Contexts
     {
         public DbSet<Project> Projects { get; set; }
         public DbSet<Manager> Managers { get; set; }
+        
+        public DbSet<Article> Articles { get; set; }
 
         public AppDbContext(DbContextOptions options) : base(options) { }
 
@@ -26,11 +28,21 @@ namespace InmovestAPI.Persistance.Contexts
             builder.Entity<Manager>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Manager>().Property(p => p.Name).IsRequired().HasMaxLength(30);
             
+            builder.Entity<Article>().ToTable("Articles");
+            builder.Entity<Article>().HasKey(p => p.Id);
+            builder.Entity<Article>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Article>().Property(p => p.Body).IsRequired();
+            
             //Relationships
             builder.Entity<Manager>()
                 .HasMany(p => p.Projects)
                 .WithOne(p => p.Manager)
                 .HasForeignKey(p => p.ManagerId);
+            
+            builder.Entity<Project>()
+                .HasMany(p => p.Articles)
+                .WithOne(p => p.Project)
+                .HasForeignKey(p => p.ProjectId);
 
              //Constraints
             builder.Entity<Project>().ToTable("Projects");
