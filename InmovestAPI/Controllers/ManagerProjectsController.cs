@@ -26,7 +26,7 @@ namespace InmovestAPI.Controllers
         [SwaggerOperation(
             Summary = "Get All Projects By Manager",
             Description = "Get All Projects for a given ManagerId",
-            Tags = new[] {"Manager"}
+            Tags = new[] {"Projects"}
         )]
         [HttpGet]
         public async Task<IEnumerable<ProjectResource>> GetAllByManagerIdAsync(int managerId)
