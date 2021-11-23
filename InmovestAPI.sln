@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InmovestAPI", "InmovestAPI\InmovestAPI.csproj", "{80CD9016-9E07-4F5A-BE10-3B2B9D8BD465}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InmovestAPI.Tests", "InmovestAPI.Tests\InmovestAPI.Tests.csproj", "{C84EC138-3DC4-4FCA-8D19-461B81A99F79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{80CD9016-9E07-4F5A-BE10-3B2B9D8BD465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80CD9016-9E07-4F5A-BE10-3B2B9D8BD465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80CD9016-9E07-4F5A-BE10-3B2B9D8BD465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84EC138-3DC4-4FCA-8D19-461B81A99F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84EC138-3DC4-4FCA-8D19-461B81A99F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84EC138-3DC4-4FCA-8D19-461B81A99F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84EC138-3DC4-4FCA-8D19-461B81A99F79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

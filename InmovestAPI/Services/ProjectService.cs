@@ -106,6 +106,7 @@ namespace InmovestAPI.Services
             existingProject.Name = project.Name;
             existingProject.Description = project.Description;
             existingProject.PhotoUrl = project.PhotoUrl;
+            existingProject.ManagerId = project.ManagerId;
 
             try
             {
