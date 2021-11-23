@@ -14,6 +14,8 @@ namespace InmovestAPI.Persistance.Contexts
         public DbSet<Manager> Managers { get; set; }
         
         public DbSet<Campaign> Campaigns { get; set; }
+        
+        public DbSet<Article> Articles { get; set; }
 
         public AppDbContext(DbContextOptions options) : base(options) { }
 
@@ -36,11 +38,21 @@ namespace InmovestAPI.Persistance.Contexts
             builder.Entity<Campaign>().Property(p => p.MinAmount).IsRequired();
             builder.Entity<Campaign>().Property(p => p.MaxAmount).IsRequired();
             
+            builder.Entity<Article>().ToTable("Articles");
+            builder.Entity<Article>().HasKey(p => p.Id);
+            builder.Entity<Article>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Article>().Property(p => p.Body).IsRequired();
+            
             //Relationships
             builder.Entity<Manager>()
                 .HasMany(p => p.Projects)
                 .WithOne(p => p.Manager)
                 .HasForeignKey(p => p.ManagerId);
+            
+            builder.Entity<Project>()
+                .HasMany(p => p.Articles)
+                .WithOne(p => p.Project)
+                .HasForeignKey(p => p.ProjectId);
 
             builder.Entity<Project>()
                 .HasMany(p => p.Campaigns)

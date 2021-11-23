@@ -15,6 +15,7 @@ namespace InmovestAPI.Mapping
             CreateMap<SaveProjectResource, Project>();
             CreateMap<SaveManagerResource, Manager>();
             CreateMap<SaveCampaignResource, Campaign>();
+            CreateMap<SaveArticleResource, Article>();
         }
     }
 }
