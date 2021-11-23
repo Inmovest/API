@@ -1,8 +1,13 @@
-using InmovestAPI.Domain.Repositories;
-using InmovestAPI.Domain.Services;
-using InmovestAPI.Persistance.Contexts;
-using InmovestAPI.Persistance.Repositories;
-using InmovestAPI.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Inmovest.API.Domain;
+using Inmovest.API.Domain.Repositories;
+using Inmovest.API.Domain.Services;
+using Inmovest.API.Persistence.Contexts;
+using Inmovest.API.Persistence.Repositories;
+using Inmovest.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,12 +18,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace InmovestAPI
+namespace Inmovest.API
 {
     public class Startup
     {
@@ -32,36 +33,37 @@ namespace InmovestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-
-            services.AddRouting(options => options.LowercaseUrls = true);
-
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "InmovestAPI", Version = "v1" });
-                c.EnableAnnotations(); //se agrega para poder activar la funcionalidad de las anotaciones de swagger.
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Inmovest.API", Version = "v1"});
             });
-
-            //Configure In-Memory Database
-
+            
+            // Configure In-Memory Database
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("inmovest-api-in-memory");
             });
-
-            //Dependency Injection Rules
-            //Projects
-            services.AddScoped<IProjectRepository, ProjectRepository>();
-            services.AddScoped<IProjectService, ProjectService>();
-            //Managers
-            services.AddScoped<IManagerRespository, ManagerRepository>();
-            services.AddScoped<IManagerService, ManagerService>();
-            //Unit Of Work
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            
+            // Dependency Injection Rules
+            services.AddScoped<IDeveloperRepository, DeveloperRepository>();
+            services.AddScoped<IDeveloperService, DeveloperService>();
+            
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
+            services.AddScoped<IBankAccountService, BankAccountService>();
+            
+            services.AddScoped<IWalletRepository, WalletRepository>();
+            services.AddScoped<IWalletService, WalletService>();
+            
+            services.AddScoped<IContractRepository, ContractRepository>();
+            services.AddScoped<IContractService, ContractService>();
+            
             // AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,7 +73,7 @@ namespace InmovestAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "InmovestAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Inmovest.API v1"));
             }
 
             app.UseHttpsRedirection();
@@ -80,10 +82,7 @@ namespace InmovestAPI
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
