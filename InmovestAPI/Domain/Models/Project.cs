@@ -16,6 +16,8 @@ namespace InmovestAPI.Domain.Models
         public int ManagerId { get; set; }
         public Manager Manager { get; set; }
         public IList<Article> Articles { get; set; } = new List<Article>();
+
+        public IList<Campaign> Campaigns { get; set; } = new List<Campaign>();
         //recuerda agregar el public Developer Developer {get;set;} y el relacionado a distrinct tambien
     }
 }
