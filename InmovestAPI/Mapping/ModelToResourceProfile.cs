@@ -14,7 +14,7 @@ namespace InmovestAPI.Mapping
         {
             CreateMap<Project, ProjectResource>();
             CreateMap<Manager, ManagerResource>();
-            //i did this to try something
+            CreateMap<Article, ArticleResource>();
         }
     }
 }
